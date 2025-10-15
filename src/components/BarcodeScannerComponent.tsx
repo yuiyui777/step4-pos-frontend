@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { useZxing } from 'react-zxing'
 
 interface BarcodeScannerComponentProps {
@@ -22,7 +23,7 @@ export default function BarcodeScannerComponent({ onScan, isScanning }: BarcodeS
   return (
     <div style={styles.container}>
       <div style={styles.videoContainer}>
-        <video ref={ref} style={styles.video} />
+        <video ref={ref as React.RefObject<HTMLVideoElement>} style={styles.video} />
         {!isScanning && (
           <div style={styles.overlay}>
             <p style={styles.overlayText}>スキャン待機中...</p>
